@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radio400"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4:00 AM" />
+
+            <RadioButton
+                android:id="@+id/radio430"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4:30 AM" />
+
+            <RadioButton
+                android:id="@+id/radio500"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5:00 AM" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnSetAlarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Establecer Alarma" />
+    </LinearLayout>
+</layout>
