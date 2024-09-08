@@ -26,6 +26,7 @@ class MainMenuFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnExercise.setOnClickListener {
+            //requireActivity().supportFragmentManager.commit {
             parentFragmentManager.commit {
                 replace(R.id.fragment_container, ExerciseFragment())
                 addToBackStack(null)
@@ -33,6 +34,7 @@ class MainMenuFragment : Fragment() {
         }
 
         binding.btnCalendar.setOnClickListener {
+            //requireActivity().supportFragmentManager.commit {
             parentFragmentManager.commit {
                 replace(R.id.fragment_container, CalendarFragment())
                 addToBackStack(null)
@@ -40,6 +42,7 @@ class MainMenuFragment : Fragment() {
         }
 
         binding.btnAlarm.setOnClickListener {
+            //requireActivity().supportFragmentManager.commit {
             parentFragmentManager.commit {
                 replace(R.id.fragment_container, AlarmFragment())
                 addToBackStack(null)

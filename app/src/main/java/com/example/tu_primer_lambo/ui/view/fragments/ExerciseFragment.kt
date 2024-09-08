@@ -11,28 +11,48 @@ import com.example.tu_primer_lambo.ui.viewModels.ExerciseViewModel
 
 class ExerciseFragment : Fragment() {
 
-    private lateinit var binding: FragmentExerciseBinding
+    private var _binding: FragmentExerciseBinding? = null
+    private val binding get() = _binding!!
     private val viewModel: ExerciseViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentExerciseBinding.inflate(inflater, container, false)
+
+        _binding = FragmentExerciseBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.numberPickerBurpees.apply {
+            minValue = 0
+            maxValue = 800
+            wrapSelectorWheel = true
+        }
+
+
         binding.btnSubmit.setOnClickListener {
-            val burpees = binding.inputBurpees.text.toString().toIntOrNull() ?: 0
-            val gymChecked = binding.checkboxGym.isChecked
-            viewModel.updateProgress(burpees, gymChecked)
+            val burpees = binding.numberPickerBurpees.value
+            val wentToGym = when (binding.radioGroup.checkedRadioButtonId) {
+                binding.radioSi.id -> true
+                binding.radioNo.id -> false
+                else -> false
+            }
+
+            viewModel.updateProgress(burpees, wentToGym)
         }
 
         viewModel.progress.observe(viewLifecycleOwner) { progress ->
             binding.progressBar.progress = (progress * 100).toInt()
         }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
+

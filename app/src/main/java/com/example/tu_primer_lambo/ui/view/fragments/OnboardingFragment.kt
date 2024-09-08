@@ -12,13 +12,13 @@ class OnboardingFragment : Fragment() {
 
     private lateinit var binding: FragmentOnboardingBinding
     private val story = listOf(
-        "Era un día como cualquier otro, pero algo en ti había cambiado.",
-        "Habías decidido que era hora de tomar el control de tu vida.",
-        "No más excusas, no más procrastinación.",
-        "Sabías que para lograr tu sueño de tener tu primer Lambo, tenías que ser disciplinado.",
-        "La clave no estaba en el dinero, sino en la perseverancia.",
+        "Era un día como otro cualquiera, te despiertas con resaca y algo en ti ha cambiado.",
+        "Decides que es hora de tomar el control de tu vida. No mas PANZA, no mas conformismo",
+        "No más excusas...se acabó ser un fakin mileurista",
+        "Sabías que para lograr tu sueño y tener tu primer Lambo, tenías que ser disciplinado.",
+        "La clave la tiene el gran Llados, tengo que hacer caso de él y de nadie más.",
         "Cada día cuenta, cada burpee te acerca más a tu meta.",
-        "¿Estás listo para empezar este reto y ver cómo te transformas?"
+        "Fakin inutil ¿Estás listo para empezar este reto y ver cómo te transformas masivamente?"
     )
     private var currentStoryIndex = 0
 

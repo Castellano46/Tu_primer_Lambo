@@ -5,30 +5,84 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:gravity="center"
         android:padding="16dp">
 
-        <EditText
-            android:id="@+id/inputBurpees"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Número de burpees" />
-
-        <CheckBox
-            android:id="@+id/checkboxGym"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="He hecho una rutina de gimnasio" />
+            android:text="Round 1"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FAK ¿Cuántos burpees has hecho hoy?"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"/>
+
+        <NumberPicker
+            android:id="@+id/numberPickerBurpees"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Round 2"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Faking panza ¿Fuiste al gym hoy?"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"/>
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioSi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SI"
+                android:textSize="18sp"
+                android:layout_marginEnd="50dp"/>
+
+            <RadioButton
+                android:id="@+id/radioNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NO"
+                android:textSize="18sp"/>
+        </RadioGroup>
 
         <Button
             android:id="@+id/btnSubmit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Enviar" />
+            android:text="Enviar"
+            android:layout_marginTop="32dp"/>
 
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:max="100" />
+            android:max="100"
+            android:layout_marginTop="16dp"/>
     </LinearLayout>
+
 </layout>
