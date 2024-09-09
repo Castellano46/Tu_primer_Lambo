@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import com.example.tu_primer_lambo.databinding.FragmentCalendarBinding
 import com.example.tu_primer_lambo.ui.viewModels.ExerciseViewModel
 import java.text.SimpleDateFormat
@@ -17,7 +17,7 @@ class CalendarFragment : Fragment() {
     private var _binding: FragmentCalendarBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: ExerciseViewModel by viewModels()
+    private val viewModel: ExerciseViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,12 +44,17 @@ class CalendarFragment : Fragment() {
 
                 val entry = entries.find { it.date != null && it.date == selectedDateString }
                 if (entry != null && entry.exerciseDone) {
-
                     binding.root.setBackgroundColor(Color.GREEN)
                 } else {
                     binding.root.setBackgroundColor(Color.RED)
                 }
             }
+        }
+
+        viewModel.progress.observe(viewLifecycleOwner) { progress ->
+            val progressPercent = (progress * 100).toInt()
+            binding.progressBar.progress = progressPercent
+            binding.tvProgressPercentage.text = "Tu Lambo está al: $progressPercent%"
         }
     }
 
@@ -58,4 +63,3 @@ class CalendarFragment : Fragment() {
         _binding = null
     }
 }
-

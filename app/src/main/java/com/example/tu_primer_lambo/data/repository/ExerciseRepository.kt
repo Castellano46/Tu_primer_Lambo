@@ -39,9 +39,17 @@ class ExerciseRepository(private val context: Context) {
     fun getCalendarEntries(): List<CalendarEntry> {
         val calendarString = sharedPreferences.getString("calendar_entries", "") ?: ""
         return if (calendarString.isNotEmpty()) {
-            calendarString.split(";").map {
-                val parts = it.split(",")
-                CalendarEntry(parts[0], parts[1].toBoolean())
+            calendarString.split(";").mapNotNull { entry ->
+                val parts = entry.split(",")
+                if (parts.size == 2) {
+                    try {
+                        CalendarEntry(parts[0], parts[1].toBoolean())
+                    } catch (e: Exception) {
+                        null
+                    }
+                } else {
+                    null
+                }
             }
         } else {
             emptyList()

@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.tu_primer_lambo.data.model.CalendarEntry
 import com.example.tu_primer_lambo.data.repository.ExerciseRepository
-import java.util.*
 
 class ExerciseViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -17,8 +16,13 @@ class ExerciseViewModel(application: Application) : AndroidViewModel(application
     val calendarEntries: LiveData<List<CalendarEntry>> get() = _calendarEntries
 
     init {
-        loadProgress()
-        loadCalendarEntries()
+        try {
+            loadProgress()
+            loadCalendarEntries()
+        } catch (e: Exception) {
+            _progress.value = 0f
+            _calendarEntries.value = emptyList()
+        }
     }
 
     private fun loadProgress() {
