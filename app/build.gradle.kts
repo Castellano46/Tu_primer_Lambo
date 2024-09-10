@@ -51,5 +51,8 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     //implementation("androidx.fragment:fragment-ktx:1.8.3")
     implementation(libs.androidx.fragment.ktx)
-
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.core.ktx.v1120)
+    implementation(libs.material.v190)
 }

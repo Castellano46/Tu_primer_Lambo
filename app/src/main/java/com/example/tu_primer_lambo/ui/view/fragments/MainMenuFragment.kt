@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.tu_primer_lambo.databinding.FragmentMainMenuBinding
-import androidx.fragment.app.commit
+import androidx.navigation.fragment.findNavController
 import com.example.tu_primer_lambo.R
+import com.example.tu_primer_lambo.databinding.FragmentMainMenuBinding
 
 class MainMenuFragment : Fragment() {
 
@@ -26,27 +26,15 @@ class MainMenuFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnExercise.setOnClickListener {
-            //requireActivity().supportFragmentManager.commit {
-            parentFragmentManager.commit {
-                replace(R.id.fragment_container, ExerciseFragment())
-                addToBackStack(null)
-            }
+            findNavController().navigate(R.id.action_homeFragment_to_exerciseFragment)
         }
 
         binding.btnCalendar.setOnClickListener {
-            //requireActivity().supportFragmentManager.commit {
-            parentFragmentManager.commit {
-                replace(R.id.fragment_container, CalendarFragment())
-                addToBackStack(null)
-            }
+            findNavController().navigate(R.id.action_homeFragment_to_calendarFragment)
         }
 
         binding.btnAlarm.setOnClickListener {
-            //requireActivity().supportFragmentManager.commit {
-            parentFragmentManager.commit {
-                replace(R.id.fragment_container, AlarmFragment())
-                addToBackStack(null)
-            }
+            findNavController().navigate(R.id.action_homeFragment_to_alarmFragment)
         }
     }
 
@@ -55,4 +43,3 @@ class MainMenuFragment : Fragment() {
         _binding = null
     }
 }
-

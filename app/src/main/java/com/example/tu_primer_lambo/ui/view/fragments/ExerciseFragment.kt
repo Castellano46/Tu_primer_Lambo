@@ -5,11 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.tu_primer_lambo.databinding.FragmentExerciseBinding
 import com.example.tu_primer_lambo.ui.viewModels.ExerciseViewModel
+import androidx.navigation.fragment.findNavController
+import com.example.tu_primer_lambo.R
 
 class ExerciseFragment : Fragment() {
 
@@ -50,14 +53,19 @@ class ExerciseFragment : Fragment() {
             }
 
             viewModel.updateProgress(burpees, wentToGym)
-            Toast.makeText(context, "Progreso actualizado con éxito", Toast.LENGTH_SHORT).show()
-        }
 
-        viewModel.progress.observe(viewLifecycleOwner) { progress ->
-            if (progress != null) {
-                binding.progressBar.progress = (progress * 100).toInt()
-            }
+            showConfirmationDialog()
         }
+    }
+
+    private fun showConfirmationDialog() {
+        AlertDialog.Builder(requireContext())
+            .setMessage("Sus datos han sido guardados")
+            .setPositiveButton("Aceptar") { _, _ ->
+                findNavController().navigate(R.id.action_exerciseFragment_to_homeFragment)
+            }
+            .create()
+            .show()
     }
 
     override fun onDestroyView() {
@@ -65,3 +73,4 @@ class ExerciseFragment : Fragment() {
         _binding = null
     }
 }
+

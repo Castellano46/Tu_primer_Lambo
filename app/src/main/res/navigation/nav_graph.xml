@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/onboardingFragment">
+
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="com.example.tu_primer_lambo.ui.view.fragments.OnboardingFragment"
+        android:label="OnboardingFragment">
+        <action
+            android:id="@+id/action_onboardingFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.tu_primer_lambo.ui.view.fragments.MainMenuFragment"
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/action_homeFragment_to_exerciseFragment"
+            app:destination="@id/exerciseFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_calendarFragment"
+            app:destination="@id/calendarFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_alarmFragment"
+            app:destination="@id/alarmFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/exerciseFragment"
+        android:name="com.example.tu_primer_lambo.ui.view.fragments.ExerciseFragment"
+        android:label="ExerciseFragment">
+        <action
+            android:id="@+id/action_exerciseFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.example.tu_primer_lambo.ui.view.fragments.CalendarFragment"
+        android:label="CalendarFragment" />
+
+    <fragment
+        android:id="@+id/alarmFragment"
+        android:name="com.example.tu_primer_lambo.ui.view.fragments.AlarmFragment"
+        android:label="AlarmFragment" />
+</navigation>
