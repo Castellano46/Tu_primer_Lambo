@@ -60,8 +60,8 @@ class ExerciseFragment : Fragment() {
 
     private fun showConfirmationDialog() {
         AlertDialog.Builder(requireContext())
-            .setMessage("Sus datos han sido guardados")
-            .setPositiveButton("Aceptar") { _, _ ->
+            .setMessage("Ganando masivamente Bro! Pronto dejarás de ser un fakin mileurista.")
+            .setPositiveButton("Let's go!") { _, _ ->
                 findNavController().navigate(R.id.action_exerciseFragment_to_homeFragment)
             }
             .create()
