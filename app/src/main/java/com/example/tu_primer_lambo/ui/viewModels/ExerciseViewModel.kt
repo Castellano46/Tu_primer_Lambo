@@ -41,9 +41,8 @@ class ExerciseViewModel(application: Application) : AndroidViewModel(application
         repository.saveProgress(progressData)
         _progress.value = progressData.progress
 
-        // Marcar el día actual como día de ejercicio realizado
         repository.markTodayExerciseDone()
-        loadCalendarEntries() // Recargar entradas del calendario
+        loadCalendarEntries()
     }
 
     fun resetProgress() {
