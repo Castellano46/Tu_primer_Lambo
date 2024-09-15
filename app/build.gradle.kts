@@ -55,4 +55,6 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.core.ktx.v1120)
     implementation(libs.material.v190)
+
+    implementation ("com.applandeo:material-calendar-view:1.9.2")
 }

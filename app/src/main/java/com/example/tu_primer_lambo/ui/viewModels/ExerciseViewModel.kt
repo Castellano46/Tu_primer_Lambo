@@ -16,13 +16,8 @@ class ExerciseViewModel(application: Application) : AndroidViewModel(application
     val calendarEntries: LiveData<List<CalendarEntry>> get() = _calendarEntries
 
     init {
-        try {
-            loadProgress()
-            loadCalendarEntries()
-        } catch (e: Exception) {
-            _progress.value = 0f
-            _calendarEntries.value = emptyList()
-        }
+        loadProgress()
+        loadCalendarEntries()
     }
 
     private fun loadProgress() {
@@ -45,7 +40,10 @@ class ExerciseViewModel(application: Application) : AndroidViewModel(application
 
         repository.saveProgress(progressData)
         _progress.value = progressData.progress
+
+        // Marcar el día actual como día de ejercicio realizado
         repository.markTodayExerciseDone()
+        loadCalendarEntries() // Recargar entradas del calendario
     }
 
     fun resetProgress() {

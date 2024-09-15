@@ -1,12 +1,14 @@
 package com.example.tu_primer_lambo.ui.view.fragments
 
-import android.graphics.Color
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.applandeo.materialcalendarview.EventDay
+import com.example.tu_primer_lambo.R
 import com.example.tu_primer_lambo.databinding.FragmentCalendarBinding
 import com.example.tu_primer_lambo.ui.viewModels.ExerciseViewModel
 import java.text.SimpleDateFormat
@@ -27,28 +29,26 @@ class CalendarFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("ResourceAsColor")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.calendarEntries.observe(viewLifecycleOwner) { entries ->
-            binding.calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
 
-                val selectedDate = Calendar.getInstance().apply {
-                    set(Calendar.YEAR, year)
-                    set(Calendar.MONTH, month)
-                    set(Calendar.DAY_OF_MONTH, dayOfMonth)
-                }.timeInMillis
+            val eventDays = mutableListOf<EventDay>()
 
-                val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-                val selectedDateString = dateFormat.format(Date(selectedDate))
+            entries.forEach { entry ->
+                val calendar = Calendar.getInstance().apply {
+                    time = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(entry.date)
+                }
 
-                val entry = entries.find { it.date != null && it.date == selectedDateString }
-                if (entry != null && entry.exerciseDone) {
-                    binding.root.setBackgroundColor(Color.GREEN)
-                } else {
-                    binding.root.setBackgroundColor(Color.RED)
+                if (entry.exerciseDone) {
+                    val eventIcon = R.drawable.baseline_fitness_center_24
+                    eventDays.add(EventDay(calendar, eventIcon, R.color.red))
                 }
             }
+
+            binding.calendarView.setEvents(eventDays)
         }
 
         viewModel.progress.observe(viewLifecycleOwner) { progress ->
