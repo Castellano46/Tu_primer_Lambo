@@ -14,10 +14,10 @@
     <color name="red_dark">#FFD32F2F</color>
     <color name="orange_light">#FFFFE0B2</color>
     <color name="orange_medium">#FFFF9800</color>
-    <color name="orange_dark">#FFFB8C00</color>
+    <color name="orange_dark">#FF5722</color>
     <color name="yellow_light">#FFFFF9C4</color>
     <color name="yellow_medium">#FFFFEB3B</color>
-    <color name="yellow_dark">#FFFBC02D</color>
+    <color name="yellow_dark">#FFC107</color>
 
     <!-- Tonos fríos -->
     <color name="blue_light">#FFBBDEFB</color>
