@@ -1,0 +1,28 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Sombra -->
+    <item android:right="8dp" android:bottom="8dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#50000000" />
+            <corners android:radius="50dp" />
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="200dp"
+                android:centerColor="#FFA726"
+                android:startColor="#FB8C00"
+                android:endColor="#EF6C00"
+                android:centerX="0.5"
+                android:centerY="0.3" />
+            <corners android:radius="50dp" />
+            <padding
+                android:left="16dp"
+                android:right="16dp"
+                android:top="8dp"
+                android:bottom="8dp" />
+        </shape>
+    </item>
+</layer-list>

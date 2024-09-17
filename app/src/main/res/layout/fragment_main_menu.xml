@@ -1,29 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="16dp">
+        android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btnExercise"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Seguimiento Ejercicio" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/background_image"
+            android:scaleType="centerCrop"
+            android:contentDescription="@null" />
 
-        <Button
-            android:id="@+id/btnCalendar"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Calendario" />
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp"
+            android:layout_centerInParent="true">
 
-        <Button
-            android:id="@+id/btnAlarm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Alarma" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/btnExercise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ejercicio"
+                android:background="@drawable/button_exercise"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="16dp"
+                android:stateListAnimator="@null" />
+
+            <Button
+                android:id="@+id/btnCalendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Progreso"
+                android:background="@drawable/button_calendar"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="16dp"
+                android:stateListAnimator="@null" />
+
+            <Button
+                android:id="@+id/btnAlarm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alarma"
+                android:background="@drawable/button_alarm"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="16dp"
+                android:stateListAnimator="@null" />
+        </LinearLayout>
+    </RelativeLayout>
 </layout>
