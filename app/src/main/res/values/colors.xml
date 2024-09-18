@@ -12,12 +12,12 @@
     <color name="red_light">#FFFFCDD2</color>
     <color name="red_medium">#FFF44336</color>
     <color name="red_dark">#FFD32F2F</color>
-    <color name="orange_light">#FFFFE0B2</color>
     <color name="orange_medium">#FFFF9800</color>
     <color name="orange_dark">#FF5722</color>
     <color name="yellow_light">#FFFFF9C4</color>
     <color name="yellow_medium">#FFFFEB3B</color>
     <color name="yellow_dark">#FFC107</color>
+    <color name="orange">#FFB74D</color>
 
     <!-- Tonos fríos -->
     <color name="blue_light">#FFBBDEFB</color>
@@ -40,6 +40,10 @@
     <color name="lime_light">#FFF0F4C3</color>
     <color name="lime_medium">#FFCDDC39</color>
     <color name="lime_dark">#FFAFB42B</color>
+    <color name="orange_light">#FFA726</color>
+    <color name="orangee_medium">#FB8C00</color>
+    <color name="orangee_dark"> #EF6C00</color>
+
 
     <!-- Tonos oscuros -->
     <color name="brown_light">#FFD7CCC8</color>

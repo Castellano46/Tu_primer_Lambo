@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">tu_primer_lambo</string>
+    <string name="ejercicio_button_desc">Botón de Ejercicio</string>
+    <string name="progreso_button_desc">Botón de Progreso</string>
+    <string name="alarma_button_desc">Botón de Alarma</string>
 </resources>
