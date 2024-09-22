@@ -3,4 +3,6 @@
     <string name="ejercicio_button_desc">Botón de Ejercicio</string>
     <string name="progreso_button_desc">Botón de Progreso</string>
     <string name="alarma_button_desc">Botón de Alarma</string>
+    <string name="onboarding_image_desc">Imagen de onboarding</string>
+    <string name="next_button_desc">Siguiente</string>
 </resources>
