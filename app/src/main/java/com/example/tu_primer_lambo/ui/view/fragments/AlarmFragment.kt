@@ -5,13 +5,16 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import com.example.tu_primer_lambo.databinding.FragmentAlarmBinding
+import androidx.navigation.fragment.findNavController
+import com.example.tu_primer_lambo.R
 import com.example.tu_primer_lambo.data.repository.ExerciseRepository
+import com.example.tu_primer_lambo.databinding.FragmentAlarmBinding
 import com.example.tu_primer_lambo.ui.view.activities.AlarmReceiver
 import java.util.*
 
@@ -42,6 +45,7 @@ class AlarmFragment : Fragment() {
             }
 
             selectedTime?.let { (time, progress) ->
+                Log.d("AlarmFragment", "Setting alarm for $time with progress $progress")
                 setAlarm(time.first, time.second)
                 showTimeRemainingDialog(time.first, time.second, progress)
             }
@@ -52,10 +56,7 @@ class AlarmFragment : Fragment() {
         val alarmManager = requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(requireContext(), AlarmReceiver::class.java)
         val pendingIntent = PendingIntent.getBroadcast(
-            requireContext(),
-            0,
-            intent,
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            requireContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
         val calendar = Calendar.getInstance().apply {
@@ -64,6 +65,7 @@ class AlarmFragment : Fragment() {
             set(Calendar.SECOND, 0)
         }
 
+        Log.d("AlarmFragment", "Alarm set for ${calendar.time}")
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
     }
 
@@ -82,7 +84,10 @@ class AlarmFragment : Fragment() {
             .setMessage("Bro, te quedan ${String.format("%.2f", totalHoursRemaining)} horas para ganar otro día más.")
             .setPositiveButton("Aceptar") { _, _ ->
                 updateProgress(progress)
+                Log.d("AlarmFragment", "Dialog accepted, progress updated")
+                navigateToMainMenu()
             }
+            .setCancelable(false)
             .show()
     }
 
@@ -90,6 +95,11 @@ class AlarmFragment : Fragment() {
         val currentProgress = repository.getProgress()
         currentProgress.progress += progress
         repository.saveProgress(currentProgress)
+        Log.d("AlarmFragment", "Progress updated: ${currentProgress.progress}")
+    }
+
+    private fun navigateToMainMenu() {
+        findNavController().navigate(R.id.action_alarmFragment_to_homeFragment)
     }
 
     override fun onDestroyView() {
