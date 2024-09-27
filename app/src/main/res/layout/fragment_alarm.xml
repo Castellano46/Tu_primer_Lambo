@@ -5,12 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="@android:color/background_light"
     tools:context=".ui.view.fragments.AlarmFragment">
+
+    <TextView
+        android:id="@+id/alarmTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿A qué hora piensas levantarte mañana?"
+        android:textSize="24sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp"
+        android:gravity="center" />
 
     <RadioGroup
         android:id="@+id/radioGroupAlarm"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
@@ -18,19 +31,28 @@
             android:id="@+id/radio400"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4:00 AM (Progreso +0.03%)" />
+            android:text="4:00 AM (Desarrollo personal Masivo)"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:padding="8dp" />
 
         <RadioButton
             android:id="@+id/radio430"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4:30 AM (Progreso +0.02%)" />
+            android:text="4:30 AM (Esperaba más de ti...FAAKK)"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:padding="8dp" />
 
         <RadioButton
             android:id="@+id/radio500"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="5:00 AM (Progreso +0.01%)" />
+            android:text="5:00 AM (Estás demasiado cómodo)"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:padding="8dp" />
     </RadioGroup>
 
     <Button
@@ -38,7 +60,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Establecer Alarma"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="24dp" />
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="12dp"
+        android:layout_marginTop="36dp" />
 
 </LinearLayout>

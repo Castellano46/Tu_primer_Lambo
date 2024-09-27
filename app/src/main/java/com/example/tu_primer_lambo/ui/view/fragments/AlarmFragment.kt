@@ -74,10 +74,16 @@ class AlarmFragment : Fragment() {
         val alarmTime = Calendar.getInstance().apply {
             set(Calendar.HOUR_OF_DAY, hour)
             set(Calendar.MINUTE, minute)
+
+            // Si la alarma es antes del tiempo actual, se ajusta para el día siguiente
+            if (before(currentTime)) {
+                add(Calendar.DAY_OF_MONTH, 1)
+            }
         }
-        val hoursRemaining = alarmTime.get(Calendar.HOUR_OF_DAY) - currentTime.get(Calendar.HOUR_OF_DAY)
-        val minutesRemaining = alarmTime.get(Calendar.MINUTE) - currentTime.get(Calendar.MINUTE)
-        val totalHoursRemaining = hoursRemaining + (minutesRemaining / 60.0)
+
+        // Cálculo de la diferencia de tiempo en milisegundos y conversión a horas
+        val timeDifferenceMillis = alarmTime.timeInMillis - currentTime.timeInMillis
+        val totalHoursRemaining = timeDifferenceMillis / (1000.0 * 60.0 * 60.0)
 
         AlertDialog.Builder(requireContext())
             .setTitle("Alarma seleccionada")
